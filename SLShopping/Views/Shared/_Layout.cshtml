@@ -1,0 +1,135 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SLショッピング</title>
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/bootstrap/css/bootstrap.min.css" type="text/css">
+    <!-- site.css -->
+    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
+    <!-- SLShopping.styles.css -->
+    @* <link rel="stylesheet" href="~/SLShopping.styles.css" asp-append-version="true" /> *@
+    <!-- waves.css -->
+    <link rel="stylesheet" href="~/pages/waves/css/waves.min.css" type="text/css" media="all" asp-append-version="true" />
+    <!-- themify icon -->
+    <link rel="stylesheet" href="~/icon/themify-icons/themify-icons.css" type="text/css" asp-append-version="true" />
+    <!-- font-awesome-n -->
+    <link rel="stylesheet" href="~/css/font-awesome-n.min.css" type="text/css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css" asp-append-version="true" />
+    <!-- scrollbar.css -->
+    <link rel="stylesheet" href="~/css/jquery.mCustomScrollbar.css" type="text/css" asp-append-version="true" />
+    <!-- style.css -->
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="preloader-wrapper">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-container navbar-wrapper">
+            <div>
+                <partial name="_HeaderPartial" />
+            </div>
+            <div class="pcoded-main-container">
+
+                <div class="pcoded-wrapper">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="col-md-2 d-none d-md-block bg-light sidebar">
+                            <partial name="_SidebarPartial" />
+                        </div>
+                        <div class="col-md-9 ml-sm-auto px-4">
+                            @RenderBody()
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="p-5">
+                            @RenderBody()
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="~/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery-ui/jquery-ui.min.js"></script>
+    <!-- waves js -->
+    <script type="text/javascript" src="~/pages/waves/js/waves.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="~/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- slimscroll js -->
+    <script type="text/javascript" src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- menu js -->
+    <script type="text/javascript" src="~/js/pcoded.min.js"></script>
+    <script type="text/javascript" src="~/js/vertical/vertical-layout.min.js"></script>
+
+    <script type="text/javascript" src="~/js/script.js"></script>
+    <script type="text/javascript" src="~/js/common.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @* <script src="~/js/site.js" asp-append-version="true"></script> *@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

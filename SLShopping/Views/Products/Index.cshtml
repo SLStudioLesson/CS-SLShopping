@@ -1,0 +1,78 @@
+﻿@* @model IEnumerable<SLShopping.Models.Product> *@
+@model SLShopping.ViewModels.ProductSearchViewModel
+
+@{
+    ViewData["Title"] = "商品一覧";
+}
+
+<h1>商品一覧</h1>
+
+<p>
+    <a asp-action="Create">商品新規作成</a>
+</p>
+<div class="mt-3">
+    <h2>検索条件</h2>
+    <form method="post">
+        <div class="form-group">
+            @* <label for="Name">名前</label> *@
+            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" />
+        </div>
+        <div class="mt-2">
+            <button type="submit" class="btn btn-primary">検索</button>
+            <button type="reset" class="btn btn-secondary">リセット</button>
+        </div>
+    </form>
+</div>
+<div class="mt-3">
+    <h2>検索結果一覧</h2>
+    @if (Model.Results != null && Model.Results.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        商品ID
+                    </th>
+                    <th>
+                        名前
+                    </th>
+                    <th>
+                        値段
+                    </th>
+                    <th>
+                        商品説明
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Results)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td class="text-end">
+                            <a class="btn btn-primary btn-sm m-1" asp-action="Details" asp-route-id="@item.Id">詳細</a>
+                            <a class="btn btn-success btn-sm m-1" asp-action="Edit" asp-route-id="@item.Id">編集</a>
+                            <a class="btn btn-danger btn-sm m-1" asp-action="Delete" asp-route-id="@item.Id">削除</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>該当する商品が見つかりませんでした。</p>
+    }
+</div>

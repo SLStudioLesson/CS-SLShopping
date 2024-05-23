@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="~/home">
+        <img class="img-fluid img-40" src="~/img/logo.svg">
+        <span>SLショッピング</span>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">ログアウト</a>
+                        </li>
+                }
+                else
+                {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">アカウント新規作成</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">ログイン</a>
+                        </li>
+                }
+            </ul>
+    </div>
+  </div>
+</nav>
