@@ -33,7 +33,7 @@ namespace SLShopping.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(ProductSearchViewModel searchModel)
+        public async Task<IActionResult> Index([Bind("Name")] ProductSearchViewModel searchModel)
         {
             IQueryable<Product> products = _context.Products;
 

@@ -15,7 +15,7 @@
     <form method="post">
         <div class="form-group">
             @* <label for="Name">名前</label> *@
-            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" />
+            <input asp-for="Name" class="form-control" />
         </div>
         <div class="mt-2">
             <button type="submit" class="btn btn-primary">検索</button>
