@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SLShopping", "SlShopping\SLShopping.csproj", "{46226AA5-9E2E-4101-B14F-CABC80DA9A90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLShopping.Tests", "SLShopping.Tests\SLShopping.Tests.csproj", "{379B4586-3E08-4132-A6F1-55A8387BB66E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{46226AA5-9E2E-4101-B14F-CABC80DA9A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46226AA5-9E2E-4101-B14F-CABC80DA9A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46226AA5-9E2E-4101-B14F-CABC80DA9A90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379B4586-3E08-4132-A6F1-55A8387BB66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379B4586-3E08-4132-A6F1-55A8387BB66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379B4586-3E08-4132-A6F1-55A8387BB66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379B4586-3E08-4132-A6F1-55A8387BB66E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
