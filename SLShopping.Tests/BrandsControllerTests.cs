@@ -120,7 +120,7 @@ public class BrandsControllerTests : IClassFixture<DatabaseFixture>
     {
         // Arrange（準備）
         // 新規ブランド情報を作成し、現在のブランド件数に1を加えた値を期待値として設定
-        var newBrand = new Brand { Id = 11, Name = "Test Brand" };
+        var newBrand = new Brand { Id = 11, Name = "Test Brand", Color = "White" };
         var expectedBrandsCount = _context.Brands.Count() + 1;
 
         // Act（実行）
